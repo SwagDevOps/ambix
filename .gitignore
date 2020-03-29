@@ -1,0 +1,14 @@
+*.gem
+*.swp
+*_flymake.*
+*~
+/.*
+/build/
+/doc/
+/tmp/
+/vagrant/*.override.yml
+/Vagrantfile
+/vendor/
+!/.env
+!/.gitignore
+!/.solargraph.yml
