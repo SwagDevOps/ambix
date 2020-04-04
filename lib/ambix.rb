@@ -17,7 +17,6 @@ module Ambix
   # @formatter:on
 
   include(Bundled).tap do
-    self.base_path = self.base_path.join('..')
     require 'bundler/setup' if bundled?
     require 'kamaze/project/core_ext/pp' if development?
   end
