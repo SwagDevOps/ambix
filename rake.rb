@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'lib/ambix'
+
 require 'rake'
 require 'kamaze/project'
-require_relative 'lib/ambix'
 
 Kamaze.project do |c|
   c.subject = Ambix
