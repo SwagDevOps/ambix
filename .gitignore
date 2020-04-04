@@ -6,9 +6,8 @@
 /build/
 /doc/
 /tmp/
-/vagrant/*.override.yml
 /Vagrantfile
 /vendor/
-!/.env
+!/.rspec
 !/.gitignore
 !/.solargraph.yml
