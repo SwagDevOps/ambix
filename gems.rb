@@ -26,3 +26,9 @@ group :repl do
   gem 'pry', '~> 0.12'
   gem 'pry-coolline', '~> 0.2'
 end
+
+group :test do
+  gem 'rspec', '~> 3.8'
+  gem 'sham', '~> 2.0'
+  gem 'simplecov', '~> 0.16'
+end
