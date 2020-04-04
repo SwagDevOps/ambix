@@ -20,3 +20,9 @@ group :doc do
   gem 'redcarpet', '~> 3.5'
   gem 'yard', '~> 0.9'
 end
+
+group :repl do
+  gem 'interesting_methods', '~> 0.1'
+  gem 'pry', '~> 0.12'
+  gem 'pry-coolline', '~> 0.2'
+end
