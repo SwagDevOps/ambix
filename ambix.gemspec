@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.licenses    = ["GPL-3.0"]
   s.authors     = ["Dimitri Arrigoni"]
   s.email       = "dimitri@arrigoni.me"
-  s.homepage    = "https://github.com/SwagDevOps/kamaze-project"
+  s.homepage    = "https://github.com/SwagDevOps/ambix"
 
   # MUST follow the higher required_ruby_version
   # requires version >= 2.3.0 due to safe navigation operator &
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.5.0"
   s.require_paths = ["lib"]
   s.files         = [
+    ".yardopts",
     "lib/ambix.rb",
     "lib/ambix/bundled.rb",
     "lib/ambix/version.rb",
