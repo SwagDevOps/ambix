@@ -8,12 +8,13 @@
 
 $LOAD_PATH.unshift(__dir__)
 
+# Base module.
 module Ambix
   # @formatter:off
   {
-      Bundled: 'bundled',
-      VERSION: 'version',
-  }.each { |s, fp| autoload(s, "ambix/#{fp}") }
+    Bundled: 'bundled',
+    VERSION: 'version',
+  }.each { |s, fp| autoload(s, "#{__dir__}/ambix/#{fp}") }
   # @formatter:on
 
   include(Bundled).tap do
