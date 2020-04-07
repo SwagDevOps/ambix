@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
-require 'ambix'
-
-# testing ``Kamaze.project`` method
-describe Ambix, :project do
-  it { expect(described_class).to be_const_defined(:VERSION) }
+describe Ambix, :ambix do
+  # @formatter:off
+  [
+    :Inspector,
+    :VERSION,
+  ].each do |k|
+    it { expect(described_class).to be_const_defined(k) }
+  end
+  # @formatter:on
 end
