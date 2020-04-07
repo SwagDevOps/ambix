@@ -23,6 +23,9 @@ Gem::Specification.new do |s|
     ".yardopts",
     "lib/ambix.rb",
     "lib/ambix/bundled.rb",
+    "lib/ambix/inspector.rb",
+    "lib/ambix/inspector/streams_detector.rb",
+    "lib/ambix/inspector/track.rb",
     "lib/ambix/version.rb",
     "lib/ambix/version.yml",
   ]
