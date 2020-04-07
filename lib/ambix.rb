@@ -13,6 +13,7 @@ module Ambix
   # @formatter:off
   {
     Bundled: 'bundled',
+    Inspector: 'inspector',
     VERSION: 'version',
   }.each { |s, fp| autoload(s, "#{__dir__}/ambix/#{fp}") }
   # @formatter:on
