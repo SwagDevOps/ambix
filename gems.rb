@@ -15,6 +15,12 @@ group :development do
   gem 'rugged', '~> 0.28'
 end
 
+group :watch do
+  # 'listen' is used to "watch"
+  # but could be incompatible with some systems
+  gem 'listen', '~> 3.2'
+end
+
 group :doc do
   gem 'github-markup', '~> 3.0'
   gem 'redcarpet', '~> 3.5'
