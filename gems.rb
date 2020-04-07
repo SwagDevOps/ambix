@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# bundle install --path vendor/bundle
+# bundle install --clean --path vendor/bundle
 source 'https://rubygems.org'
 git_source(:github) { |name| "https://github.com/#{name}.git" }
 
@@ -24,7 +24,6 @@ end
 group :repl do
   gem 'interesting_methods', '~> 0.1'
   gem 'pry', '~> 0.12'
-  gem 'pry-coolline', '~> 0.2'
 end
 
 group :test do
