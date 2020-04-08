@@ -20,4 +20,4 @@ end
 end
 # @formmatter:on
 
-autoload(:Ambix, "#{__dir__}/../lib/alluvion")
+autoload(:Ambix, 'ambix')
