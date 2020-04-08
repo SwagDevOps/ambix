@@ -1,0 +1,4 @@
+Stream #0:0(eng): Video: hevc (Main 10), yuv420p10le(tv, bt709), 1920x800 [SAR 1:1 DAR 12:5], 24 fps, 24 tbr, 1k tbn, 24 tbc (default)
+Stream #0:1(fre): Audio: dts (DTS-HD MA), 48000 Hz, 5.1(side), s32p (24 bit) (default) (forced)
+Stream #0:2(fre): Subtitle: hdmv_pgs_subtitle, 1920x1080
+Stream #0:3: Video: mjpeg, yuvj420p(pc, bt470bg/unknown/unknown), 640x360 [SAR 96:96 DAR 16:9], 90k tbr, 90k tbn, 90k tbc

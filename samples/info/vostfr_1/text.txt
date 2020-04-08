@@ -1,0 +1,5 @@
+Guessed Channel Layout for Input Stream #0.1 : 5.1
+Stream #0:0: Video: h264 (High), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 23.98 fps, 23.98 tbr, 1k tbn, 47.95 tbc (default)
+Stream #0:1: Audio: eac3, 48000 Hz, 5.1, fltp (default)
+Stream #0:2(eng): Subtitle: subrip
+Stream #0:3(fre): Subtitle: subrip (default)
