@@ -17,7 +17,7 @@ class Ambix::Inspector::Track
   attr_reader :type
 
   def initialize(**kwargs)
-    kwargs.each do |k, v|
+    self.class.__send__(:defaults).merge(kwargs).each do |k, v|
       next unless respond_to?("#{k}=", true)
 
       self.__send__("#{k}=", v)
@@ -43,16 +43,18 @@ class Ambix::Inspector::Track
 
   # @return [Boolean]
   def default?
-    !!@default
+    !!self.default
   end
 
   # @return [Boolean]
   def forced?
-    !!@forced
+    !!self.forced
   end
 
   # @return [String]
   def index
+    return @index unless @index.is_a?(String)
+
     @index.dup.yield_self do |index|
       index.singleton_class.define_method(:to_i) do
         index.match(/^[0-9]+:([0-9]+)$/).captures.fetch(0).yield_self do |v|
@@ -66,9 +68,25 @@ class Ambix::Inspector::Track
     end
   end
 
+  class << self
+    protected
+
+    def defaults
+      # @formatter:off
+      {
+        index: nil,
+        language: nil,
+        type: nil,
+        default: nil,
+        forced: nil,
+      }.sort.to_h
+      # @formatter:on
+    end
+  end
+
   # @return [Hash<Symbol => String|Boolean>]
   def to_h
-    [:index, :language, :type, :default].sort.map do |k|
+    self.class.__send__(:defaults).keys.sort.map do |k|
       [k, self.__send__(k).freeze]
     end.to_h
   end
@@ -83,6 +101,12 @@ class Ambix::Inspector::Track
 
   # @type [String]
   attr_writer :type
+
+  # @type [Boolean]
+  attr_reader :default
+
+  # @type [Boolean]
+  attr_reader :forced
 
   # @param [Boolean] default
   def default=(default)
