@@ -1,1 +1,21 @@
 ---
+- index: "0:0"
+  type: video
+  language: und
+  default: true
+  forced: false
+- index: "0:1"
+  type: audio
+  language: fre
+  default: true
+  forced: false
+- index: "0:2"
+  type: audio
+  language: eng
+  default: false
+  forced: false
+- index: "0:3"
+  type: subtitle
+  language: fre
+  default: false
+  forced: false
