@@ -34,7 +34,7 @@ class Ambix::Inspector::StreamsDetector
   # @return [Hash{Symbol => String|Boolan}]
   def call(file)
     outputs[file].map do |line|
-      line.gsub(/Stream\s+#/, '')
+      line.gsub(/\s*Stream\s+#/, '')
     end.map { |line| self.parse(line) }
   end
 
@@ -67,7 +67,7 @@ class Ambix::Inspector::StreamsDetector
   def capture(file)
     # noinspection RubyResolve
     Open3.capture3('ffmpeg', '-i', file).fetch(1).lines.keep_if do |line|
-      line =~ /^\s+Stream\s+#[0-9]/
+      line =~ /^\s*Stream\s+#[0-9]/
     end.map(&:strip)
   end
 
