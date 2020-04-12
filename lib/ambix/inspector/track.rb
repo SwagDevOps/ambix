@@ -97,7 +97,7 @@ class Ambix::Inspector::Track
   # @return [Hash<Symbol => String|Boolean|Object>]
   def to_h
     self.class.defaults.keys.sort.map do |k|
-      [k, self.__send__(k).freeze]
+      [k.to_sym, self.__send__(k)].map(&:freeze)
     end.to_h
   end
 
