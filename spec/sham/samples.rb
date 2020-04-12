@@ -11,7 +11,10 @@ info = lambda do
       samples[path.basename.to_s.to_sym] = {
         text: path.join('text.txt').read,
         data: path.join('data.yml')
-                  .read.yield_self { |raw| YAML.safe_load(raw) }
+                  .read
+                  .yield_self { |raw| YAML.safe_load(raw) }&.map do |h|
+          h.is_a?(Hash) ? h.map { |k, v| [k.to_sym, v] }.sort.to_h : h
+        end
       }.map { |k, v| [k, v.nil? ? {} : v] }.to_h.yield_self { |h| FactoryStruct.new(h) }
       # @formatter:off
     end
