@@ -12,6 +12,9 @@ require_relative '../ambix'
 class Ambix::Shell
   autoload(:Open3, 'open3')
 
+  # Initialize shell with given (``env``) environment.
+  #
+  # @param [Hash{String => String}] env
   def initialize(env = {})
     @env = default_env.merge(env.clone.to_h).freeze
   end
@@ -32,6 +35,9 @@ class Ambix::Shell
 
   attr_accessor :env
 
+  # Default env (merged with given nev in ``initialize``).
+  #
+  # @return [Hash{String => String}]
   def default_env
     # @formatter:off
     {
