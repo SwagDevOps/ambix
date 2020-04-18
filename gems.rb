@@ -5,14 +5,19 @@ source 'https://rubygems.org'
 git_source(:github) { |name| "https://github.com/#{name}.git" }
 
 group :default do
+  gem 'dry-auto_inject', '~> 0.6', '>= 0.6.0'
+  gem 'dry-container', '~> 0.6'
   gem 'rake', '~> 13.0'
   gem 'sys-proc', '~> 1.1', '>= 1.1.2'
 end
 
 group :development do
-  gem 'kamaze-project', { github: 'SwagDevOps/kamaze-project', branch: 'develop' }
+  { github: 'SwagDevOps/kamaze-project', branch: 'develop' }.tap do |options|
+    gem(*['kamaze-project'].concat([options]))
+  end
+
   gem 'rubocop', '~> 0.79'
-  gem 'rugged', '~> 0.28'
+  gem 'rugged', '~> 1.0'
 end
 
 group :watch do
