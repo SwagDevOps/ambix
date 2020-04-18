@@ -14,6 +14,7 @@ module Ambix
   {
     Bundled: 'bundled',
     Inspector: 'inspector',
+    Shell: 'shell',
     VERSION: 'version',
   }.each { |s, fp| autoload(s, "#{__dir__}/ambix/#{fp}") }
   # @formatter:on
