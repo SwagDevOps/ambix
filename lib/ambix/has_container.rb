@@ -15,19 +15,14 @@ require_relative '../ambix'
 module Ambix::HasContainer
   protected
 
-  # @!attribute [r] container
-  #   @return [Ambix:Container]
-
   # @return [Ambix:Container]
   def container
     @container ||= container_builder.call
   end
 
-  # @return [Dry::AutoInject::Builder]
+  # @return [Ambix:Container::Injector]
   def injector
-    require 'dry/auto_inject'
-
-    Dry::AutoInject::Builder.new(container)
+    container.to_injector
   end
 
   # @return [Pathname]
