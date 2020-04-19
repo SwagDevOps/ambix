@@ -17,9 +17,8 @@ class Ambix::Inspector
   }.each { |s, fp| autoload(s, "#{__dir__}/inspector/#{fp}") }
   # @formatter:on
 
-  def initialize(streams_detector: nil)
-    @streams_detector = streams_detector || StreamsDetector.new
-  end
+  include(Ambix::Injectable)
+  inject(:streams_detector)
 
   # @param [String] file
   #
