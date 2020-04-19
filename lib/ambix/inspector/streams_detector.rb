@@ -23,11 +23,12 @@ require_relative '../inspector'
 # ````
 class Ambix::Inspector::StreamsDetector
   include Ambix::Injectable
+
   inject(:shell)
 
-  # @param [Ambix:Shell] shell
-  def initialize(shell: nil)
-    @shell = shell
+  # @option kwargs [Ambix:Shell] shell
+  def initialize(**kwargs)
+    @shell = kwargs.fetch(:shell)
 
     @outputs = prepare_outputs(self)
   end
