@@ -9,7 +9,7 @@
 require_relative '../ambix'
 require 'kamaze/version'
 
-module Ambix
+class Ambix
   # @see https://github.com/SwagDevOps/kamaze-version
   VERSION = Kamaze::Version.new.freeze
 end
