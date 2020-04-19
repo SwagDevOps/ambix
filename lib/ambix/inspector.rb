@@ -18,6 +18,9 @@ class Ambix::Inspector
   # @formatter:on
 
   include(Ambix::Injectable)
+
+  # @!method initialize(**kwargs)
+  #   @option kwargs [Ambix::Inspector::StreamsDetector] :streams_detector
   inject(:streams_detector)
 
   # @param [String] file
