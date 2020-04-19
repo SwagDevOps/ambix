@@ -22,9 +22,13 @@ require_relative '../inspector'
 # # {:default=>false, :index=>"0:3", :language=>"fre", :type=>"subtitle"}]
 # ````
 class Ambix::Inspector::StreamsDetector
-  autoload(:Open3, 'open3')
+  include Ambix::Injectable
+  inject(:shell)
 
-  def initialize
+  # @param [Ambix:Shell] shell
+  def initialize(shell: nil)
+    @shell = shell
+
     @outputs = prepare_outputs(self)
   end
 
@@ -44,6 +48,9 @@ class Ambix::Inspector::StreamsDetector
   #
   # @type [Hash{String => Array<String>}]
   attr_accessor :outputs
+
+  # @return [Ambix::Shell]
+  attr_reader :shell
 
   # Get an Hash with ``#[]()`` method overriden as a lazy generator.
   #
@@ -65,8 +72,7 @@ class Ambix::Inspector::StreamsDetector
   #
   # @return [Array<String>]
   def capture(file)
-    # noinspection RubyResolve
-    Open3.capture3('ffmpeg', '-i', file).fetch(1).lines.keep_if do |line|
+    shell.capture('ffmpeg', '-i', file).stderr.lines.keep_if do |line|
       line =~ /^\s*Stream\s+#[0-9]/
     end.map(&:strip)
   end
