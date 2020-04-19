@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # rubocop:disable Layout/LineLength
 
 register(:shell, memoize: true) { Ambix::Shell.new }
