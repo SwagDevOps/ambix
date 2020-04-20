@@ -23,13 +23,21 @@ Gem::Specification.new do |s|
     ".yardopts",
     "lib/ambix.rb",
     "lib/ambix/bundled.rb",
+    "lib/ambix/config/container.rb",
+    "lib/ambix/container.rb",
+    "lib/ambix/container/injector.rb",
+    "lib/ambix/has_container.rb",
+    "lib/ambix/injectable.rb",
     "lib/ambix/inspector.rb",
     "lib/ambix/inspector/streams_detector.rb",
     "lib/ambix/inspector/track.rb",
+    "lib/ambix/shell.rb",
     "lib/ambix/version.rb",
     "lib/ambix/version.yml",
   ]
 
+  s.add_runtime_dependency("dry-auto_inject", [">= 0.6.0", "~> 0.6"])
+  s.add_runtime_dependency("dry-container", ["~> 0.6"])
   s.add_runtime_dependency("rake", ["~> 13.0"])
   s.add_runtime_dependency("sys-proc", [">= 1.1.2", "~> 1.1"])
 end
