@@ -2,8 +2,6 @@
 
 autoload(:Pathname, 'pathname')
 autoload(:Singleton, 'singleton')
-require 'dry/auto_inject'
-require 'dry/container'
 
 describe Ambix, :ambix do
   # @formatter:off
@@ -28,6 +26,28 @@ describe Ambix, :ambix do
     :clear,
   ].each do |method| # @formatter:on
     it { expect(described_class).to respond_to(method).with(0).arguments }
+  end
+
+  # @formatter:off
+  {
+    instance: Ambix,
+    clear: Class,
+  }.each do |method, type| # @formatter:on
+    context ".#{method}" do
+      it { expect(described_class.__send__(method)).to be_a(type) }
+    end
+  end
+
+  context '.clear' do
+    it { expect(described_class.__send__(:clear)).to eq(described_class) }
+  end
+
+  context '.new' do
+    NoMethodError.tap do |error_class|
+      it "raises #{error_class}" do
+        expect { Ambix.new }.to raise_error(error_class)
+      end
+    end
   end
 end
 
@@ -60,10 +80,10 @@ describe Ambix, :ambix do # rubocop:disable Metrics/BlockLength
 
   # @formatter:off
   {
-    container: Dry::Container,
+    container: Ambix::Container,
     container_builder: Proc,
     container_config: Pathname,
-    injector: Dry::AutoInject::Builder,
+    injector: Ambix::Container::Injector,
   }.each do |method, type| # @formatter:on
     context "##{method}" do
       it { expect(subject.__send__(method)).to be_a(type) }
