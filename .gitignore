@@ -4,10 +4,11 @@
 *~
 /.*
 /build/
+/coverage/
 /doc/
 /tmp/
 /Vagrantfile
 /vendor/
-!/.rspec
 !/.gitignore
+!/.rspec
 !/.solargraph.yml
