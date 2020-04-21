@@ -90,3 +90,17 @@ describe Ambix, :ambix do # rubocop:disable Metrics/BlockLength
     end
   end
 end
+
+# container ---------------------------------------------------------
+describe Ambix, :ambix, :container do
+  let(:subject) { Ambix.__send__(:new) }
+
+  # @formatter:off
+  {
+    shell: Ambix::Shell,
+  }.each do |key, type| # @formatter:on
+    context "#container[#{key}]" do
+      it { expect(subject.__send__(:container)[key]).to be_a(type) }
+    end
+  end
+end
