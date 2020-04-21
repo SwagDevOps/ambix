@@ -15,12 +15,12 @@ require_relative '../ambix'
 module Ambix::HasContainer
   protected
 
-  # @return [Ambix:Container]
+  # @return [Ambix::Container]
   def container
     @container ||= container_builder.call
   end
 
-  # @return [Ambix:Container::Injector]
+  # @return [Ambix::Container::Injector]
   def injector
     container.to_injector
   end
