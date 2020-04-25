@@ -31,7 +31,7 @@ class Ambix::Container < Dry::Container
     super
   end
 
-  # @return [Dry::AutoInject::Builder|Injector]
+  # @return [Injector]
   def to_injector
     Injector.new(self)
   end
