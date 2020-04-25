@@ -93,16 +93,17 @@ end
 
 # container ---------------------------------------------------------
 describe Ambix, :ambix, :container, :'ambix#container' do
-  # @formatter:off
-  {
-    shell: Ambix::Shell,
-    inspector: Ambix::Inspector,
-    streams_detector: Ambix::Inspector::StreamsDetector,
-  }.each do |key, type| # @formatter:on
-    context "#container[#{key.inspect}]" do
-      let(:subject) { Ambix.__send__(:new) }
+  [-> { Ambix.__send__(:new) }, -> { Ambix.instance }].each do |subjecter|
+    {
+      shell: Ambix::Shell,
+      inspector: Ambix::Inspector,
+      streams_detector: Ambix::Inspector::StreamsDetector,
+    }.each do |key, type| # @formatter:on
+      context "#container[#{key.inspect}]" do
+        let(:subject) { subjecter.call }
 
-      it { expect(subject.__send__(:container)[key]).to be_a(type) }
+        it { expect(subject.__send__(:container)[key]).to be_a(type) }
+      end
     end
   end
 end
