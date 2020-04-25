@@ -33,6 +33,7 @@ module Ambix::Injectable
     # Inject given key.
     #
     # @return [Boolean]
+    #
     # @see https://dry-rb.org/gems/dry-auto_inject/
     def inject(*keys, strategy: :kwargs)
       # rubocop:disable Style/NilComparison, Layout/EmptyLineAfterGuardClause
