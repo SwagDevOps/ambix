@@ -11,4 +11,5 @@
 /vendor/
 !/.gitignore
 !/.rspec
+!/.rubocop.yml
 !/.solargraph.yml
